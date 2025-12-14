@@ -6,22 +6,25 @@ export const siteConfig = {
     name: "Mili's Couture",
     logoText: "MILI'S COUTURE",
     logoSubText: "EST. 2024",
-    phone: "+91 98765 43210",
-    whatsappNumber: "919876543210",
-    address: "123 Fashion Street, New Delhi, India",
-    email: "contact@miliscouture.com",
+    phone: "+91 9079289688",
+    whatsappNumber: "919079289688",
+    address: "90/16, Karma Patel Marg, Mansarovar, Jaipur, Rajasthan 302020",
+    email: "dresszilla.jaipur@gmail.com",
     social: {
-      instagram: "https://instagram.com",
+      instagram: "https://www.instagram.com/dress_zilla",
       facebook: "https://facebook.com",
     },
   },
 
   theme: {
     colors: {
-      primary: "#F2C1B8",
+      primary: "#111111", // Black text for high-end feel
       secondary: "#ffffff",
+      accent: "#bfa480", // Gold/Beige accent often seen in luxury
+      background: "#ffffff",
       text: "#333333",
-      accent: "#D48F84",
+      lightGray: "#f9f9f9",
+      darkGray: "#222222",
     },
     fonts: {
       primary: "'Playfair Display', serif",
@@ -30,103 +33,138 @@ export const siteConfig = {
   },
 
   hero: {
-    title: "Elegance in Every Stitch",
-    subtitle: "Discover the finest collection of Lehengas, Sarees, and Bespoke Couture.",
+    title: "Curated for the Connoisseur",
+    subtitle: "Experience timeless couture for you.",
     buttonText: "Shop Collection",
-    image: "https://placehold.co/1920x1080/gray/white?text=Elegant+Fashion+Banner",
+    // From reference: DRESSZILLA banner? Or the Green/Blue one?
+    // Using a high quality one found in the scrape:
+    image: "https://dresszilla.in/wp-content/uploads/2025/06/DRESSZILLA-scaled.png",
+  },
+
+  banners: {
+    rentalBridal: "https://dresszilla.in/wp-content/uploads/2025/06/Green-and-Blue-Simple-Watercolor-Wedding-Invitation-Card-12-scaled.png",
+    manOfDistinction: "https://dresszilla.in/wp-content/uploads/2025/06/Green-and-Blue-Simple-Watercolor-Wedding-Invitation-Card-6-scaled.png",
+  },
+
+  sections: {
+    signature: {
+      title: "The Signature Collection",
+      subtitle: "An ensemble of heirloom silhouettes and modern classics — crafted for moments destined to become memories."
+    },
+    story: {
+      title: "Our Story",
+      text: [
+        "At DRESSZILLA, we believe luxury shouldn’t come with a lifelong price tag.",
+        "Founded with one mission — to make designer fashion accessible to all — we’ve redefined the way India dresses up for its biggest moments.",
+        "From heavy bridal lehengas that turn heads, to red carpet–ready gowns and statement menswear that makes grooms shine — we’re your secret to serving unforgettable looks, without ever repeating an outfit.",
+        "Every piece in our collection is handpicked, high-fashion, and high-impact — available to rent for a fraction of the retail price."
+      ],
+      founder: "Madhuri Chetwani",
+      images: [
+        "https://dresszilla.in/wp-content/uploads/2025/06/IMG_9720-581x1024.jpg",
+        "https://dresszilla.in/wp-content/uploads/2025/06/photo-2.jpg"
+      ]
+    }
   },
 
   categories: [
-    { id: "lehenga", name: "Lehenga", image: "https://placehold.co/800x800/F2C1B8/white?text=Lehenga" },
-    { id: "saree", name: "Saree", image: "https://placehold.co/800x800/e0e0e0/333333?text=Saree" },
-    { id: "gown", name: "Gowns", image: "https://placehold.co/800x800/F2C1B8/white?text=Gowns" },
-    { id: "tuxedo", name: "Tuxedo", image: "https://placehold.co/800x800/333333/white?text=Tuxedo" },
-    { id: "sherwani", name: "Sherwani", image: "https://placehold.co/800x800/d4af37/white?text=Sherwani" },
-    { id: "jewellery", name: "Jewellery", image: "https://placehold.co/800x800/e0e0e0/333333?text=Jewellery" },
+    { id: "bridal", name: "Bridal Lehengas", image: "https://dresszilla.in/wp-content/uploads/2025/06/IMG_8090-1-300x400.jpg", description: "Regal silhouettes and storied embroidery." },
+    { id: "gown", name: "Occasion Gowns", image: "https://dresszilla.in/wp-content/uploads/2025/06/IMG_5396-1-300x375.webp", description: "Statement gowns crafted to dazzle beneath starlit skies." },
+    { id: "saree", name: "Statement Sarees", image: "https://dresszilla.in/wp-content/uploads/2025/06/IMG_6026-scaled-300x400.jpg", description: "An ode to India’s artistry — drapes that transcend time." },
+    // Adding Men's specific if needed or grouping them
   ],
 
   products: [
     {
-      id: "prod_001",
-      name: "Bridal Pink Lehenga",
-      price: "₹45,000",
-      category: "lehenga",
+      id: "noor-e-nazaakat",
+      name: "Noor-e-Nazaakat Lehenga",
+      price: "₹5,000.00",
+      category: "bridal",
       images: [
-        "https://placehold.co/600x800/F2C1B8/white?text=Pink+Lehenga+Front",
-        "https://placehold.co/600x800/F2C1B8/white?text=Pink+Lehenga+Back"
+        "https://dresszilla.in/wp-content/uploads/2025/06/IMG_8090-1-300x400.jpg"
       ],
-      description: "A stunning hand-embroidered pink lehenga perfect for weddings. Features intricate zari work and a matching blouse.",
-      options: {
-        Size: ["XS", "S", "M", "L", "XL", "Custom"],
-        "Blouse Stitching": ["Unstitched", "Stitched"],
-      }
+      description: "A stunning hand-embroidered pink lehenga perfect for weddings.",
+      options: { Size: ["S", "M", "L"] }
     },
     {
-      id: "prod_002",
-      name: "Royal Blue Silk Saree",
-      price: "₹12,500",
-      category: "saree",
+      id: "heritage-weave",
+      name: "The Heritage Weave Lehenga",
+      price: "₹5,000.00",
+      category: "bridal",
       images: [
-        "https://placehold.co/600x800/000080/white?text=Blue+Saree",
+        "https://dresszilla.in/wp-content/uploads/2025/06/IMG_6026-scaled-300x400.jpg"
       ],
-      description: "Authentic Banarasi silk saree in royal blue with gold border.",
-      options: {
-        "Blouse Piece": ["Attached", "Separate"],
-      }
+      description: "Traditional craftsmanship with a modern silhouette.",
+      options: { Size: ["S", "M", "L"] }
     },
     {
-      id: "prod_003",
-      name: "Classic Black Tuxedo",
-      price: "₹18,000",
-      category: "tuxedo",
+      id: "modern-rajkumari",
+      name: "The Modern Rajkumari Lehenga",
+      price: "₹5,000.00",
+      category: "bridal",
       images: [
-        "https://placehold.co/600x800/1a1a1a/white?text=Black+Tuxedo",
+        "https://dresszilla.in/wp-content/uploads/2025/06/IMG_5396-1-300x375.webp"
       ],
-      description: "Premium Italian wool tuxedo suit. Includes jacket and trousers.",
-      options: {
-        Size: ["38", "40", "42", "44"],
-        Fit: ["Slim", "Regular"],
-      }
+      description: "Contemporary elegance for the modern bride.",
+      options: { Size: ["S", "M", "L"] }
     },
     {
-      id: "prod_004",
-      name: "Floral Evening Gown",
-      price: "₹8,500",
-      category: "gown",
+      id: "royal-heirloom",
+      name: "The Royal Heirloom Lehenga",
+      price: "₹5,000.00",
+      category: "bridal",
       images: [
-        "https://placehold.co/600x800/FFB6C1/333333?text=Floral+Gown",
+        "https://dresszilla.in/wp-content/uploads/2025/06/IMG_5374-300x348.jpg"
       ],
-      description: "Elegant floor-length gown with floral prints and soft tulle fabric.",
-      options: {
-        Size: ["S", "M", "L", "XL"],
-        Color: ["Peach", "Mint Green"],
-      }
+      description: "A timeless piece inspired by royal archives.",
+      options: { Size: ["S", "M", "L"] }
     },
-     {
-      id: "prod_005",
-      name: "Golden Sherwani Set",
-      price: "₹25,000",
-      category: "sherwani",
+    // New Arrivals
+    {
+      id: "guldasta",
+      name: "Guldasta-e-Riwaayat",
+      price: "₹3,000.00",
+      originalPrice: "₹5,000.00",
+      category: "new-arrivals",
       images: [
-        "https://placehold.co/600x800/DAA520/white?text=Sherwani",
+        "https://dresszilla.in/wp-content/uploads/2025/06/IMG_4614-scaled-300x450.jpg"
       ],
-      description: "Traditional golden sherwani with maroon stole. Perfect for the groom.",
-      options: {
-        Size: ["38", "40", "42", "44", "Custom"],
-      }
+      description: "Floral elegance at an unbeatable price.",
+      options: { Size: ["S", "M", "L"] }
     },
     {
-      id: "prod_006",
-      name: "Kundan Necklace Set",
-      price: "₹3,500",
-      category: "jewellery",
+      id: "meher-gulaab",
+      name: "Meher-e-Gulaab Lehenga",
+      price: "₹5,000.00",
+      category: "new-arrivals",
       images: [
-        "https://placehold.co/600x800/FFD700/333333?text=Necklace+Set",
+        "https://dresszilla.in/wp-content/uploads/2025/06/IMG_1256-scaled-300x400.jpg"
       ],
-      description: "Artificial Kundan set with earrings and maang tikka.",
-      options: {
-        Plating: ["Gold", "Rose Gold"],
-      }
+      description: "Rose pink perfection.",
+      options: { Size: ["S", "M", "L"] }
+    },
+    {
+      id: "rani-noor",
+      name: "Rani-E-Noor Lehenga",
+      price: "₹2,000.00",
+      originalPrice: "₹5,000.00",
+      category: "new-arrivals",
+      images: [
+        "https://dresszilla.in/wp-content/uploads/2025/06/IMG_1684-300x375.jpg"
+      ],
+      description: "A steal for the queen in you.",
+      options: { Size: ["S", "M", "L"] }
+    },
+    {
+      id: "zariwaala",
+      name: "Zariwaala Mohabbat",
+      price: "₹5,000.00",
+      category: "new-arrivals",
+      images: [
+        "https://dresszilla.in/wp-content/uploads/2025/06/IMG_1797-300x371.jpg"
+      ],
+      description: "Intricate zari work.",
+      options: { Size: ["S", "M", "L"] }
     }
   ]
 };

@@ -1,62 +1,70 @@
 // src/components/Navbar.jsx
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Menu, X, ShoppingBag, Search } from 'lucide-react';
+import { Menu, X, ShoppingBag, Search, User } from 'lucide-react';
 import { siteConfig } from '../config';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const { logoText, logoSubText } = siteConfig.siteDetails;
-  const { colors } = siteConfig.theme;
+  const { colors, fonts } = siteConfig.theme;
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
-    <nav className="sticky top-0 z-50 bg-white shadow-sm">
-      {/* Top Bar for Contact/Promo if needed - optional */}
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-20">
+    <nav
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        scrolled ? 'bg-white shadow-md py-2' : 'bg-transparent py-4'
+      }`}
+    >
+      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between items-center">
 
           {/* Mobile Menu Button */}
           <div className="flex items-center md:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-gray-600 hover:text-gray-900 focus:outline-none"
+              className="text-gray-800 hover:text-black focus:outline-none"
             >
               {isOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
           </div>
 
+          {/* Desktop Left Nav */}
+          <div className="hidden md:flex space-x-8 items-center flex-1">
+             <Link to="/shop" className="text-sm uppercase tracking-widest hover:text-gray-500 transition-colors font-medium">Shop All</Link>
+             <Link to="/category/bridal" className="text-sm uppercase tracking-widest hover:text-gray-500 transition-colors font-medium">For Her</Link>
+             <Link to="/category/tuxedo" className="text-sm uppercase tracking-widest hover:text-gray-500 transition-colors font-medium">For Him</Link>
+          </div>
+
           {/* Logo */}
-          <div className="flex-shrink-0 flex flex-col items-center justify-center flex-1 md:flex-none">
+          <div className="flex-shrink-0 flex flex-col items-center justify-center mx-auto md:px-4">
             <Link to="/" className="text-center group">
-               <div className="font-serif text-2xl tracking-widest font-bold" style={{ color: colors.text }}>
-                 {logoText}
-               </div>
-               {logoSubText && (
-                 <div className="text-[10px] tracking-[0.3em] text-gray-400 mt-1 group-hover:text-gray-600 transition-colors">
-                   {logoSubText}
-                 </div>
-               )}
+               <h1 className="text-2xl md:text-3xl font-bold tracking-[0.2em] uppercase" style={{ fontFamily: fonts.primary }}>
+                 DRESSZILLA
+               </h1>
             </Link>
           </div>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex space-x-8 items-center">
-            <Link to="/" className="text-gray-800 hover:text-pink-400 uppercase text-sm tracking-wide font-medium transition-colors">Home</Link>
-            <Link to="/category/lehenga" className="text-gray-800 hover:text-pink-400 uppercase text-sm tracking-wide font-medium transition-colors">Lehengas</Link>
-            <Link to="/category/saree" className="text-gray-800 hover:text-pink-400 uppercase text-sm tracking-wide font-medium transition-colors">Sarees</Link>
-            <Link to="/category/tuxedo" className="text-gray-800 hover:text-pink-400 uppercase text-sm tracking-wide font-medium transition-colors">For Him</Link>
-            <Link to="/category/jewellery" className="text-gray-800 hover:text-pink-400 uppercase text-sm tracking-wide font-medium transition-colors">Jewellery</Link>
-          </div>
-
-          {/* Icons */}
-          <div className="flex items-center space-x-4">
-            <button className="text-gray-600 hover:text-pink-500 transition-colors">
-              <Search size={20} />
+          {/* Desktop Right Icons */}
+          <div className="flex items-center space-x-6 flex-1 justify-end">
+            <div className="hidden md:flex items-center border-b border-black pb-1">
+               <input type="text" placeholder="SEARCH" className="bg-transparent border-none focus:ring-0 text-xs tracking-widest w-24 placeholder-gray-800" />
+               <Search size={16} />
+            </div>
+            <button className="text-gray-800 hover:text-gray-600 transition-colors hidden md:block">
+              <User size={20} />
             </button>
-            {/* Cart icon - placeholder for now since we do direct WhatsApp buy, but keeps layout consistent */}
-            <Link to="/" className="text-gray-600 hover:text-pink-500 transition-colors relative">
+            <Link to="/" className="text-gray-800 hover:text-gray-600 transition-colors relative">
               <ShoppingBag size={20} />
+              <span className="absolute -top-1 -right-1 bg-black text-white text-[10px] w-4 h-4 flex items-center justify-center rounded-full">0</span>
             </Link>
           </div>
         </div>
@@ -64,19 +72,15 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="md:hidden bg-white border-t border-gray-100">
-          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-             <Link to="/" onClick={() => setIsOpen(false)} className="block px-3 py-2 text-base font-medium text-gray-700 hover:bg-pink-50 hover:text-pink-500 uppercase tracking-wide">Home</Link>
-             {siteConfig.categories.map((cat) => (
-                <Link
-                  key={cat.id}
-                  to={`/category/${cat.id}`}
-                  onClick={() => setIsOpen(false)}
-                  className="block px-3 py-2 text-base font-medium text-gray-700 hover:bg-pink-50 hover:text-pink-500 uppercase tracking-wide"
-                >
-                  {cat.name}
-                </Link>
-             ))}
+        <div className="md:hidden bg-white absolute top-full left-0 right-0 shadow-xl h-screen">
+          <div className="px-4 py-6 space-y-4">
+             <div className="border-b border-gray-100 pb-2 mb-4">
+               <input type="text" placeholder="Search..." className="w-full text-lg font-light outline-none" />
+             </div>
+             <Link to="/" onClick={() => setIsOpen(false)} className="block text-xl font-serif text-gray-800">Home</Link>
+             <Link to="/category/bridal" onClick={() => setIsOpen(false)} className="block text-xl font-serif text-gray-800">For Her</Link>
+             <Link to="/category/tuxedo" onClick={() => setIsOpen(false)} className="block text-xl font-serif text-gray-800">For Him</Link>
+             <Link to="/category/jewellery" onClick={() => setIsOpen(false)} className="block text-xl font-serif text-gray-800">Jewellery</Link>
           </div>
         </div>
       )}
