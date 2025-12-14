@@ -123,15 +123,19 @@ const Home = () => {
       <section className="py-24 text-center bg-white border-t border-gray-100">
          <div className="max-w-3xl mx-auto px-4">
             <h2 className="font-serif text-3xl mb-12">What Our Customers Say</h2>
-            <div className="space-y-6">
-               <img src="https://dresszilla.in/wp-content/uploads/2025/06/14163-200-150x150.png" alt="Customer" className="w-20 h-20 rounded-full mx-auto object-cover" />
-               <p className="font-serif text-xl italic text-gray-600 leading-relaxed">
-                 "From the moment I stepped into Dresszilla, I knew I wasn’t just renting a lehenga — I was choosing an heirloom. The craftsmanship, the attention to detail, the way the team listened to my story — everything was flawless."
-               </p>
-               <div>
-                  <h4 className="font-bold text-sm uppercase tracking-widest">Namrita S.</h4>
-                  <p className="text-gray-400 text-xs uppercase tracking-widest mt-1">My Wedding Day</p>
-               </div>
+            <div className="space-y-12">
+               {sections.testimonials.map((testimonial, idx) => (
+                 <div key={idx} className="space-y-6">
+                    <img src={testimonial.image} alt="Customer" className="w-20 h-20 rounded-full mx-auto object-cover" />
+                    <p className="font-serif text-xl italic text-gray-600 leading-relaxed">
+                      "{testimonial.text}"
+                    </p>
+                    <div>
+                        <h4 className="font-bold text-sm uppercase tracking-widest">{testimonial.author}</h4>
+                        <p className="text-gray-400 text-xs uppercase tracking-widest mt-1">{testimonial.role}</p>
+                    </div>
+                 </div>
+               ))}
             </div>
          </div>
       </section>

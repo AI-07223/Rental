@@ -7,7 +7,7 @@ import { siteConfig } from '../config';
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const { logoText, logoSubText } = siteConfig.siteDetails;
+  const { logoText, logoSubText, topBarText } = siteConfig.siteDetails;
   const { colors, fonts } = siteConfig.theme;
 
   useEffect(() => {
@@ -19,9 +19,17 @@ const Navbar = () => {
   }, []);
 
   return (
+    <>
+    {topBarText && (
+       <div className="fixed top-0 left-0 right-0 h-9 bg-black text-white flex items-center justify-center text-[10px] tracking-[0.2em] uppercase z-[60]">
+         {topBarText}
+       </div>
+    )}
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? 'bg-white shadow-md py-2' : 'bg-transparent py-4'
+      className={`fixed left-0 right-0 z-50 transition-all duration-300 ${
+        scrolled
+          ? 'top-9 bg-white shadow-md py-2'
+          : 'top-9 bg-transparent py-6'
       }`}
     >
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
@@ -48,8 +56,13 @@ const Navbar = () => {
           <div className="flex-shrink-0 flex flex-col items-center justify-center mx-auto md:px-4">
             <Link to="/" className="text-center group">
                <h1 className="text-2xl md:text-3xl font-bold tracking-[0.2em] uppercase" style={{ fontFamily: fonts.primary }}>
-                 DRESSZILLA
+                 {logoText}
                </h1>
+               {logoSubText && (
+                 <span className="text-[10px] tracking-[0.4em] uppercase text-gray-500 mt-1 block">
+                   {logoSubText}
+                 </span>
+               )}
             </Link>
           </div>
 
@@ -85,6 +98,7 @@ const Navbar = () => {
         </div>
       )}
     </nav>
+    </>
   );
 };
 

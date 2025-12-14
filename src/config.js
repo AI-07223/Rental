@@ -6,6 +6,7 @@ export const siteConfig = {
     name: "Mili's Couture",
     logoText: "MILI'S COUTURE",
     logoSubText: "EST. 2024",
+    topBarText: "Welcome to India's Premier Rental Boutique - Worldwide Shipping Available",
     phone: "+91 9079289688",
     whatsappNumber: "919079289688",
     address: "90/16, Karma Patel Marg, Mansarovar, Jaipur, Rajasthan 302020",
@@ -54,7 +55,7 @@ export const siteConfig = {
     story: {
       title: "Our Story",
       text: [
-        "At DRESSZILLA, we believe luxury shouldn’t come with a lifelong price tag.",
+        "At Mili's Couture, we believe luxury shouldn’t come with a lifelong price tag.",
         "Founded with one mission — to make designer fashion accessible to all — we’ve redefined the way India dresses up for its biggest moments.",
         "From heavy bridal lehengas that turn heads, to red carpet–ready gowns and statement menswear that makes grooms shine — we’re your secret to serving unforgettable looks, without ever repeating an outfit.",
         "Every piece in our collection is handpicked, high-fashion, and high-impact — available to rent for a fraction of the retail price."
@@ -64,7 +65,15 @@ export const siteConfig = {
         "https://dresszilla.in/wp-content/uploads/2025/06/IMG_9720-581x1024.jpg",
         "https://dresszilla.in/wp-content/uploads/2025/06/photo-2.jpg"
       ]
-    }
+    },
+    testimonials: [
+      {
+        text: "From the moment I stepped into Mili's Couture, I knew I wasn’t just renting a lehenga — I was choosing an heirloom. The craftsmanship, the attention to detail, the way the team listened to my story — everything was flawless.",
+        author: "Namrita S.",
+        role: "My Wedding Day",
+        image: "https://dresszilla.in/wp-content/uploads/2025/06/14163-200-150x150.png"
+      }
+    ]
   },
 
   categories: [
