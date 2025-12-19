@@ -33,6 +33,23 @@ export const siteConfig = {
     }
   },
 
+  categories: [
+    { id: "bridal", name: "Bridal Lehengas" },
+    { id: "pre-wedding", name: "Pre Wedding Dresses" },
+    { id: "saree", name: "Sarees" },
+    { id: "indowestern", name: "Indowestern" },
+    { id: "fishcut-gown", name: "Fishcut Gowns" },
+    { id: "gown", name: "Gowns" },
+    { id: "maternity", name: "Maternity Dresses" },
+    { id: "tuxedo", name: "Tuxedos" },
+    { id: "blazer", name: "Blazers" },
+    { id: "kurta-pyjama", name: "Kurta Pyjama" },
+    { id: "coat-pants", name: "Coat Pants" },
+    { id: "jewellery", name: "Jewellery" },
+    { id: "new-arrivals", name: "New Arrivals" },
+    { id: "men", name: "Men's Collection" }
+  ],
+
   navigation: [
     { name: "Shop All", path: "/shop" },
     {
@@ -67,7 +84,11 @@ export const siteConfig = {
     title: "Curated for the Connoisseur",
     subtitle: "Experience timeless couture for you.",
     buttonText: "Shop Collection",
-    image: "https://images.unsplash.com/photo-1594938298603-c8148c472f29?q=80&w=3000&auto=format&fit=crop",
+    images: [
+       "https://images.unsplash.com/photo-1594938298603-c8148c472f29?q=80&w=3000&auto=format&fit=crop",
+       "https://images.unsplash.com/photo-1512413914633-b5043f4041ea?q=80&w=2869&auto=format&fit=crop",
+       "https://images.unsplash.com/photo-1566174053879-31528523f8ae?q=80&w=2848&auto=format&fit=crop"
+    ],
   },
 
   banners: {
@@ -305,6 +326,43 @@ export const siteConfig = {
       ],
       description: "Sophisticated ethnic wear for formal occasions.",
       options: { Size: ["40", "42", "44"] }
+    },
+    // Demo Data for Other Categories
+    {
+      id: "demo-gown",
+      name: "Starlight Evening Gown",
+      price: "₹6,000.00",
+      category: "gown",
+      images: ["https://images.unsplash.com/photo-1566174053879-31528523f8ae?q=80&w=2848&auto=format&fit=crop"],
+      description: "A beautiful gown for evening parties.",
+      options: { Size: ["S", "M", "L"] }
+    },
+    {
+      id: "demo-saree",
+      name: "Banarasi Silk Saree",
+      price: "₹4,500.00",
+      category: "saree",
+      images: ["https://images.unsplash.com/photo-1610030469983-98e550d6193c?q=80&w=2868&auto=format&fit=crop"],
+      description: "Traditional banarasi silk saree.",
+      options: { Color: ["Red", "Blue"] }
+    },
+    {
+      id: "demo-pre-wedding",
+      name: "Flowy Pre-Wedding Dress",
+      price: "₹3,500.00",
+      category: "pre-wedding",
+      images: ["https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?q=80&w=2940&auto=format&fit=crop"],
+      description: "Perfect for pre-wedding photoshoots.",
+      options: { Size: ["XS", "S", "M"] }
+    },
+    {
+      id: "demo-tuxedo",
+      name: "James Bond Tuxedo",
+      price: "₹4,000.00",
+      category: "tuxedo",
+      images: ["https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=3000&auto=format&fit=crop"],
+      description: "Sharp and stylish tuxedo.",
+      options: { Size: ["40", "42"] }
     }
   ]
 };

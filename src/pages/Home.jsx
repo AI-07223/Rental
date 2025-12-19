@@ -18,12 +18,27 @@ const Home = () => {
 
       {/* Hero Section */}
       <div className="relative h-screen w-full overflow-hidden">
-        <img
-          src={hero.image}
-          alt="Hero"
-          className="absolute inset-0 w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-black/20 flex flex-col items-center justify-center text-center px-4 pt-20">
+        {/* Simple fade-in/out or carousel slider could go here.
+            For simplicity in this version, we map over images but only show active or just animate opacity.
+            CSS animation is cleaner for a simple loop. */}
+        {hero.images && hero.images.length > 0 ? (
+          hero.images.map((img, index) => (
+             <img
+               key={index}
+               src={img}
+               alt={`Hero ${index + 1}`}
+               className="absolute inset-0 w-full h-full object-cover animate-fade"
+               style={{ animationDelay: `${index * 5}s`, opacity: 0 }}
+             />
+          ))
+        ) : (
+          <img
+             src={hero.image}
+             alt="Hero"
+             className="absolute inset-0 w-full h-full object-cover"
+           />
+        )}
+        <div className="absolute inset-0 bg-black/20 flex flex-col items-center justify-center text-center px-4 pt-20 z-10">
            <h2 className="text-white text-lg md:text-xl tracking-[0.3em] uppercase mb-4 drop-shadow-md">
              {hero.subtitle}
            </h2>
