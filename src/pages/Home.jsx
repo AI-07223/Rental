@@ -6,11 +6,12 @@ import ProductCard from '../components/ProductCard';
 import { ArrowRight, Star } from 'lucide-react';
 
 const Home = () => {
-  const { hero, products, categories, theme, sections, banners } = siteConfig;
+  const { hero, products, categories, theme, sections, banners, rentalCurations, blogs, seoContent } = siteConfig;
 
   // Filter collections
   const signatureCollection = products.filter(p => p.category === 'bridal').slice(0, 4);
   const newArrivals = products.filter(p => p.category === 'new-arrivals').slice(0, 4);
+  const manOfDistinctionCollection = products.filter(p => p.category === 'men').slice(0, 4);
 
   return (
     <div className="font-sans text-gray-800">
@@ -55,14 +56,14 @@ const Home = () => {
       {/* For Him & Her Banner */}
       <section className="grid md:grid-cols-2 h-[600px] md:h-[500px]">
         <div className="relative group overflow-hidden h-full">
-           <img src="https://dresszilla.in/wp-content/uploads/2025/06/IMG_6026-scaled-300x400.jpg" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 filter brightness-75 group-hover:brightness-90" alt="For Her" />
+           <img src={banners.forHer} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 filter brightness-75 group-hover:brightness-90" alt="For Her" />
            <div className="absolute inset-0 flex flex-col items-center justify-center text-white p-8 border-r border-white/20">
               <h2 className="text-4xl font-serif mb-4">For Her</h2>
               <Link to="/category/bridal" className="text-sm uppercase tracking-[0.2em] border-b border-white pb-1 hover:text-gray-200">Explore Now</Link>
            </div>
         </div>
         <div className="relative group overflow-hidden h-full">
-           <img src="https://dresszilla.in/wp-content/uploads/2025/06/IMG_5396-1-300x375.webp" className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 filter brightness-75 group-hover:brightness-90" alt="For Him" />
+           <img src={banners.forHim} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 filter brightness-75 group-hover:brightness-90" alt="For Him" />
            <div className="absolute inset-0 flex flex-col items-center justify-center text-white p-8">
               <h2 className="text-4xl font-serif mb-4">For Him</h2>
               <Link to="/category/tuxedo" className="text-sm uppercase tracking-[0.2em] border-b border-white pb-1 hover:text-gray-200">Explore Now</Link>
@@ -91,11 +92,18 @@ const Home = () => {
         </div>
       </section>
 
-       {/* Man of Distinction Banner */}
+       {/* Man of Distinction Banner & Products */}
        <section className="pb-20 bg-white text-center">
          <h2 className="font-serif text-3xl md:text-4xl mb-8">Rent Out - For the Man of Distinction</h2>
-         <div className="max-w-[1200px] mx-auto px-4">
+         <div className="max-w-[1200px] mx-auto px-4 mb-12">
             <img src={banners.manOfDistinction} alt="Groom Banner" className="w-full h-auto" />
+         </div>
+         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-12">
+               {manOfDistinctionCollection.map(product => (
+                 <ProductCard key={product.id} product={product} />
+               ))}
+             </div>
          </div>
       </section>
 
@@ -119,6 +127,44 @@ const Home = () => {
         </div>
       </section>
 
+      {/* Rental Curations */}
+      <section className="py-24 bg-white">
+        <div className="max-w-[1400px] mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8">
+            {rentalCurations.map((item, idx) => (
+                <div key={idx} className="group cursor-pointer">
+                    <div className="overflow-hidden mb-6 h-[500px]">
+                        <img src={item.image} alt={item.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"/>
+                    </div>
+                    <h3 className="font-serif text-2xl mb-2">{item.title}</h3>
+                    <p className="text-gray-500 text-sm mb-4 leading-relaxed">{item.description}</p>
+                    <Link to={item.link} className="text-xs font-bold uppercase tracking-widest border-b border-black pb-1">Explore Collection</Link>
+                </div>
+            ))}
+        </div>
+      </section>
+
+      {/* Blogs */}
+      <section className="py-20 bg-[#f9f9f9]">
+          <div className="max-w-[1200px] mx-auto px-4">
+              <div className="flex justify-between items-end mb-12">
+                  <h2 className="font-serif text-4xl">From the Journal</h2>
+                  <Link to="/blog" className="text-xs font-bold uppercase tracking-widest flex items-center gap-2">Read All Stories <ArrowRight size={16}/></Link>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                  {blogs.map((blog, idx) => (
+                      <div key={idx} className="group bg-white p-4 shadow-sm hover:shadow-md transition-shadow">
+                          <div className="overflow-hidden mb-4 h-64">
+                              <img src={blog.image} alt={blog.title} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"/>
+                          </div>
+                          <h3 className="font-serif text-xl mb-3 leading-tight group-hover:text-[#bfa480] transition-colors">{blog.title}</h3>
+                          <p className="text-gray-500 text-sm mb-4 line-clamp-3 leading-relaxed">{blog.excerpt}</p>
+                          <span className="text-xs font-bold uppercase tracking-widest text-gray-400">Read More</span>
+                      </div>
+                  ))}
+              </div>
+          </div>
+      </section>
+
       {/* Testimonials */}
       <section className="py-24 text-center bg-white border-t border-gray-100">
          <div className="max-w-3xl mx-auto px-4">
@@ -138,6 +184,27 @@ const Home = () => {
                ))}
             </div>
          </div>
+      </section>
+
+      {/* SEO Content */}
+      <section className="py-20 bg-[#f5f5f5] text-center border-t border-gray-200">
+          <div className="max-w-4xl mx-auto px-6">
+              <h2 className="font-serif text-2xl md:text-3xl mb-6 text-gray-800">{seoContent.title}</h2>
+              <div className="space-y-6 text-gray-600 text-sm leading-relaxed">
+                  {seoContent.content.map((para, idx) => (
+                      <p key={idx}>{para}</p>
+                  ))}
+              </div>
+
+              <div className="mt-12 grid gap-10 text-left">
+                  {seoContent.sections.map((section, idx) => (
+                      <div key={idx}>
+                          <h3 className="font-serif text-xl mb-3 text-gray-800">{section.title}</h3>
+                          <p className="text-gray-600 text-sm leading-relaxed whitespace-pre-line">{section.content}</p>
+                      </div>
+                  ))}
+              </div>
+          </div>
       </section>
 
     </div>
