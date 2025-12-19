@@ -6,6 +6,8 @@ import Footer from './components/Footer';
 import Home from './pages/Home';
 import ProductDetails from './pages/ProductDetails';
 import CategoryPage from './pages/CategoryPage';
+import Shop from './pages/Shop';
+import Blog from './pages/Blog';
 
 // Simple ScrollToTop component inline
 const ScrollToTop = () => {
@@ -25,6 +27,8 @@ function App() {
         <main className="flex-grow">
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/shop" element={<Shop />} />
+            <Route path="/blog" element={<Blog />} />
             <Route path="/product/:id" element={<ProductDetails />} />
             <Route path="/category/:id" element={<CategoryPage />} />
           </Routes>
