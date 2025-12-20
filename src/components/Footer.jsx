@@ -13,11 +13,11 @@ const Footer = () => {
 
           {/* Brand Column */}
           <div className="col-span-1 md:col-span-1">
-            <h3 className="text-2xl font-bold tracking-[0.2em] mb-6 font-serif">
-              DRESSZILLA
+            <h3 className="text-2xl font-bold tracking-[0.2em] mb-6 font-serif uppercase">
+              {siteDetails.name}
             </h3>
             <p className="text-gray-500 text-sm leading-relaxed mb-8">
-              Experience timeless couture for you. Where heirloom artistry meets modern elegance.
+              {siteDetails.topBarText} Where heirloom artistry meets modern elegance.
             </p>
             <div className="flex space-x-6">
               <a href={siteDetails.social.instagram} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-black transition-colors">
@@ -74,7 +74,6 @@ const Footer = () => {
 
         <div className="border-t border-gray-100 mt-20 pt-10 text-center flex flex-col md:flex-row justify-between items-center text-xs text-gray-400 uppercase tracking-wider">
           <p>&copy; {new Date().getFullYear()} {siteDetails.name}. All rights reserved.</p>
-          <p>Created by Pintsmedia</p>
         </div>
       </div>
     </footer>

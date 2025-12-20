@@ -1,16 +1,15 @@
 // src/components/ProductCard.jsx
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { siteConfig } from '../config';
+import { generateWhatsAppLink } from '../utils/whatsapp';
 
 const ProductCard = ({ product }) => {
   const handleOrderClick = (e) => {
     e.preventDefault(); // Prevent navigation to product page
-    // Assuming product has a basic structure for now, though details page has selectedOptions.
-    // We will just open a general inquiry for this product.
-    const message = `Hi, I am interested in ${product.name}.`;
-    const whatsappUrl = `https://wa.me/${siteConfig.siteDetails.whatsappNumber}?text=${encodeURIComponent(message)}`;
-    window.open(whatsappUrl, '_blank');
+    // Use utility for consistent message formatting
+    // We pass empty options since the card view doesn't select size/color
+    const link = generateWhatsAppLink(product, {});
+    window.open(link, '_blank');
   };
 
   return (
