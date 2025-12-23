@@ -1,4 +1,3 @@
-
 // src/config.js
 
 export const siteConfig = {
@@ -18,10 +17,11 @@ export const siteConfig = {
 
   theme: {
     colors: {
-      primary: "#F2C1B8",
-      secondary: "#ffffff",
-      text: "#333333",
-      accent: "#D48F84",
+      primary: "#8B0000",
+      secondary: "#D4AF37",
+      background: "#FDFBF7",
+      text: "#1A1A1A",
+      accent: "#5C0A0A",
     },
     fonts: {
       primary: "'Playfair Display', serif",
@@ -29,20 +29,111 @@ export const siteConfig = {
     }
   },
 
-  hero: {
-    title: "Elegance in Every Stitch",
-    subtitle: "Discover the finest collection of Lehengas, Sarees, and Bespoke Couture.",
-    buttonText: "Shop Collection",
-    image: "https://placehold.co/1920x1080/gray/white?text=Elegant+Fashion+Banner",
-  },
+  heroSlides: [
+    {
+      title: "Elegance in Every Stitch",
+      subtitle: "Bridal Collection 2025",
+      description: "Discover our exquisite bridal lehengas, handcrafted with love and tradition.",
+      buttonText: "Shop Bridal",
+      link: "/category/lehenga",
+      image: "https://images.unsplash.com/photo-1610030469983-98e550d6193c?w=1920&q=80"
+    },
+    {
+      title: "The Saree Affair",
+      subtitle: "Handwoven Heritage",
+      description: "Authentic Banarasi and Kanjeevaram sarees for the modern woman.",
+      buttonText: "Explore Sarees",
+      link: "/category/saree",
+      image: "https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?w=1920&q=80"
+    },
+    {
+      title: "Regal Celebrations",
+      subtitle: "Festive Edit",
+      description: "Make every occasion memorable with our stunning festive collection.",
+      buttonText: "Shop Now",
+      link: "/category/gown",
+      image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1920&q=80"
+    }
+  ],
 
   categories: [
-    { id: "lehenga", name: "Lehenga", image: "https://placehold.co/800x800/F2C1B8/white?text=Lehenga" },
-    { id: "saree", name: "Saree", image: "https://placehold.co/800x800/e0e0e0/333333?text=Saree" },
-    { id: "gown", name: "Gowns", image: "https://placehold.co/800x800/F2C1B8/white?text=Gowns" },
-    { id: "tuxedo", name: "Tuxedo", image: "https://placehold.co/800x800/333333/white?text=Tuxedo" },
-    { id: "sherwani", name: "Sherwani", image: "https://placehold.co/800x800/d4af37/white?text=Sherwani" },
-    { id: "jewellery", name: "Jewellery", image: "https://placehold.co/800x800/e0e0e0/333333?text=Jewellery" },
+    {
+      id: "lehenga",
+      name: "Lehenga",
+      image: "https://images.unsplash.com/photo-1610030469983-98e550d6193c?w=800&q=80"
+    },
+    {
+      id: "saree",
+      name: "Saree",
+      image: "https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?w=800&q=80"
+    },
+    {
+      id: "gown",
+      name: "Gowns",
+      image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80"
+    },
+    {
+      id: "tuxedo",
+      name: "Tuxedo",
+      image: "https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=800&q=80"
+    },
+    {
+      id: "sherwani",
+      name: "Sherwani",
+      image: "https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=800&q=80"
+    },
+    {
+      id: "jewellery",
+      name: "Jewellery",
+      image: "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=800&q=80"
+    },
+  ],
+
+  featuredCollections: [
+    {
+      id: "bridal",
+      title: "The Bridal Edit",
+      subtitle: "New Season",
+      description: "Where dreams meet reality. Discover our handcrafted bridal lehengas, each piece telling a story of love and tradition.",
+      image: "https://images.unsplash.com/photo-1610030469983-98e550d6193c?w=1920&q=80",
+      link: "/category/lehenga"
+    },
+    {
+      id: "heritage",
+      title: "Handwoven in Banaras",
+      subtitle: "Artisan Collection",
+      description: "Celebrating centuries of weaving heritage. Authentic silk sarees crafted by master artisans.",
+      image: "https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?w=1920&q=80",
+      link: "/category/saree"
+    }
+  ],
+
+  muses: [
+    {
+      name: "Priya Sharma",
+      outfit: "Bridal Pink Lehenga",
+      image: "https://images.unsplash.com/photo-1610030469983-98e550d6193c?w=600&q=80"
+    },
+    {
+      name: "Ananya Patel",
+      outfit: "Royal Blue Saree",
+      image: "https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?w=600&q=80"
+    },
+    {
+      name: "Riya Kapoor",
+      outfit: "Floral Gown",
+      image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80"
+    },
+    {
+      name: "Meera Desai",
+      outfit: "Maroon Lehenga",
+      image: "https://images.unsplash.com/photo-1610030469983-98e550d6193c?w=600&q=80"
+    },
+    {
+      name: "Sara Khan",
+      outfit: "Ivory Saree",
+      image: "https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?w=600&q=80"
+    },
   ],
 
   products: [
@@ -52,8 +143,8 @@ export const siteConfig = {
       price: "₹45,000",
       category: "lehenga",
       images: [
-        "https://placehold.co/600x800/F2C1B8/white?text=Pink+Lehenga+Front",
-        "https://placehold.co/600x800/F2C1B8/white?text=Pink+Lehenga+Back"
+        "https://images.unsplash.com/photo-1610030469983-98e550d6193c?w=600&q=80",
+        "https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?w=600&q=80"
       ],
       description: "A stunning hand-embroidered pink lehenga perfect for weddings. Features intricate zari work and a matching blouse.",
       options: {
@@ -67,7 +158,7 @@ export const siteConfig = {
       price: "₹12,500",
       category: "saree",
       images: [
-        "https://placehold.co/600x800/000080/white?text=Blue+Saree",
+        "https://images.unsplash.com/photo-1583391733956-3750e0ff4e8b?w=600&q=80",
       ],
       description: "Authentic Banarasi silk saree in royal blue with gold border.",
       options: {
@@ -80,7 +171,7 @@ export const siteConfig = {
       price: "₹18,000",
       category: "tuxedo",
       images: [
-        "https://placehold.co/600x800/1a1a1a/white?text=Black+Tuxedo",
+        "https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=600&q=80",
       ],
       description: "Premium Italian wool tuxedo suit. Includes jacket and trousers.",
       options: {
@@ -94,7 +185,7 @@ export const siteConfig = {
       price: "₹8,500",
       category: "gown",
       images: [
-        "https://placehold.co/600x800/FFB6C1/333333?text=Floral+Gown",
+        "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80",
       ],
       description: "Elegant floor-length gown with floral prints and soft tulle fabric.",
       options: {
@@ -102,13 +193,13 @@ export const siteConfig = {
         Color: ["Peach", "Mint Green"],
       }
     },
-     {
+    {
       id: "prod_005",
       name: "Golden Sherwani Set",
       price: "₹25,000",
       category: "sherwani",
       images: [
-        "https://placehold.co/600x800/DAA520/white?text=Sherwani",
+        "https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=600&q=80",
       ],
       description: "Traditional golden sherwani with maroon stole. Perfect for the groom.",
       options: {
@@ -121,7 +212,7 @@ export const siteConfig = {
       price: "₹3,500",
       category: "jewellery",
       images: [
-        "https://placehold.co/600x800/FFD700/333333?text=Necklace+Set",
+        "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=600&q=80",
       ],
       description: "Artificial Kundan set with earrings and maang tikka.",
       options: {
